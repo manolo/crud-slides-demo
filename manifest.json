@@ -1,0 +1,6 @@
+{
+  "name": "crud",
+  "short_name": "crud",
+  "start_url": "/",
+  "display": "standalone"
+}

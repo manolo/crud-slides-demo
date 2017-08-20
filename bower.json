@@ -1,0 +1,34 @@
+{
+  "name": "crud",
+  "main": "index.html",
+  "dependencies": {
+    "polymer": "^2.0.0",
+    "crud-view": "master",
+    "vaadin-valo-theme": "master",
+    "vaadin-material-theme": "master",
+    "vaadin-overlay": "changes_for_crud",
+    "vaadin-dialog": "changes_for_crud",
+    "vaadin-notification": "master",
+    "vaadin-grid": "^3.0.0",
+    "vaadin-form-layout": "^1.0.4",
+    "vaadin-helpers": "manolo/vaadin-helpers",
+    "vaadin-dropdown-menu": "master",
+    "vaadin-combo-box": "^3.0.0",
+    "vaadin-button": "^1.0.0",
+    "vaadin-text-field": "^1.1.0",
+    "vaadin-pouchdb": "manolo/vaadin-pouchdb#master",
+    "vaadin-date-picker": "^2.0.7",
+    "vaadin-list-box": "^1.0.0",
+    "iron-ajax": "^2.0.6"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "resolutions": {
+    "vaadin-overlay": "changes_for_crud",
+    "vaadin-list-box": "master",
+    "vaadin-dropdown-menu": "master",
+    "vaadin-grid": "^3.0.0"
+  }
+}
