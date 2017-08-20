@@ -1,21 +1,28 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/crud-view/crud-list-mixin.html">
+<link rel="import" href="../../bower_components/crud-view/crud-view.html">
 <link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
 <link rel="import" href="crud-user.html">
 
 <dom-module id="crud-users">
   <template>
     <iron-ajax auto url="/users.json" handle-as="json" last-response="{{items}}"></iron-ajax>
-    <vaadin-grid id="grid" items="[[items]]" active-item="{{activeItem}}">
-      <vaadin-grid-column>
-        <template>[[item.email]]</template>
-      </vaadin-grid-column>
-      <vaadin-grid-column>
-        <template>[[item.name]] [[item.last]]</template>
-      </vaadin-grid-column>
-    </vaadin-grid>
-    <crud-user id="editor" item="[[item]]" on-save="save" on-close="close" on-delete="delete"></crud-user>
+    <crud-view item="[[item]]">
+      <vaadin-grid slot="grid" items="[[items]]" active-item="{{activeItem}}">
+        <vaadin-grid-column>
+          <template>[[item.email]]</template>
+        </vaadin-grid-column>
+        <vaadin-grid-column>
+          <template>[[item.name]] [[item.last]]</template>
+        </vaadin-grid-column>
+      </vaadin-grid>
+
+      <template class="editor">
+        <crud-user item="[[item]]" on-save="save" on-close="close" on-delete="delete"></crud-user>
+      </template>
+    </crud-view>
   </template>
 
   <script>
