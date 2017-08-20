@@ -15,6 +15,7 @@
         <template>[[item.name]] [[item.last]]</template>
       </vaadin-grid-column>
     </vaadin-grid>
+    <crud-user id="editor" item="[[item]]" on-save="save" on-close="close" on-delete="delete"></crud-user>
   </template>
 
   <script>
