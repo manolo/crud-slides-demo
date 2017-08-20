@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/crud-view/crud-view.html">
 <link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid-sorter.html">
 
 <link rel="import" href="crud-user.html">
 
@@ -12,9 +13,15 @@
     <crud-view item="[[item]]">
       <vaadin-grid slot="grid" items="[[items]]" active-item="{{activeItem}}">
         <vaadin-grid-column>
+          <template class="header">
+            <vaadin-grid-sorter path="email">Email</vaadin-grid-sorter>
+          </template>
           <template>[[item.email]]</template>
         </vaadin-grid-column>
         <vaadin-grid-column>
+          <template class="header">
+            <vaadin-grid-sorter path="name">Name</vaadin-grid-sorter>
+          </template>
           <template>[[item.name]] [[item.last]]</template>
         </vaadin-grid-column>
       </vaadin-grid>
