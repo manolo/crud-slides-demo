@@ -1,14 +1,24 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/crud-view/crud-list-mixin.html">
+<link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="crud-user.html">
 
 <dom-module id="crud-users">
   <template>
-    <style>
-    </style>
-    <h2>Hello World</h2>
+    <iron-ajax auto url="/users.json" handle-as="json" last-response="{{items}}"></iron-ajax>
+    <vaadin-grid id="grid" items="[[items]]" active-item="{{activeItem}}">
+      <vaadin-grid-column>
+        <template>[[item.email]]</template>
+      </vaadin-grid-column>
+      <vaadin-grid-column>
+        <template>[[item.name]] [[item.last]]</template>
+      </vaadin-grid-column>
+    </vaadin-grid>
   </template>
 
   <script>
-    class CrudUsers extends Polymer.Element {
+    class CrudUsers extends window.CrudListMixin(Polymer.Element) {
       static get is() { return 'crud-users'; }
     }
 
