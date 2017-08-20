@@ -1,21 +1,31 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/crud-view/crud-item-mixin.html">
+<link rel="import" href="../../bower_components/vaadin-text-field/vaadin-text-field.html">
+<link rel="import" href="../../bower_components/vaadin-text-field/vaadin-password-field.html">
+<link rel="import" href="../../bower_components/vaadin-button/vaadin-button.html">
+<link rel="import" href="../../bower_components/vaadin-form-layout/vaadin-form-layout.html">
+<link rel="import" href="../../bower_components/vaadin-combo-box/vaadin-combo-box.html">
+<link rel="import" href="../../bower_components/vaadin-date-picker/vaadin-date-picker.html">
 
 <dom-module id="crud-user">
   <template>
     <style>
-      input {
-        display: block;
-      }
-      button, input {
-        font-size: 1em;
+      :host {
+        flex: 1;
+        padding: 0 10px;
       }
     </style>
-
-    Email: <input value="{{item.email::input}}" disabled="[[!item]]"></input>
-    First: <input value="{{item.name::input}}" disabled="[[!item]]"></input>
-    Last:  <input value="{{item.last::input}}" disabled="[[!item]]"></input>
-
+    <vaadin-form-layout style="padding: 10px">
+      <vaadin-text-field colspan="2" label="Login" value="{{item.email}}"></vaadin-text-field>
+      <br>
+      <vaadin-password-field colspan="2" label="Password" value="{{item.password}}"></vaadin-password-field>
+      <br>
+      <vaadin-text-field label="Name" value="{{item.name}}"></vaadin-text-field>
+      <vaadin-text-field label="Surname" value="{{item.last}}"></vaadin-text-field>
+      <br>
+      <vaadin-combo-box label="Role" value="{{item.role}}" items='["admin","operator","user"]'></vaadin-combo-box>
+      <vaadin-date-picker label="Birthday" value="{{item.birthday}}"></vaadin-date-picker>
+    </vaadin-form-layout>
   </template>
 
   <script>

@@ -6,12 +6,17 @@
 <link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid-sorter.html">
 
 <link rel="import" href="crud-user.html">
+<link rel="import" href="../../bower_components/vaadin-button/vaadin-button.html">
+<link rel="import" href="../../bower_components/vaadin-text-field/vaadin-text-field.html">
 
 <dom-module id="crud-users">
   <template>
     <iron-ajax auto url="/users.json" handle-as="json" last-response="{{items}}"></iron-ajax>
     <crud-view item="[[item]]">
-      <vaadin-grid slot="grid" items="[[items]]" active-item="{{activeItem}}">
+      <vaadin-text-field slot="header" placeholder="Search ..." value="{{search}}" style="flex: 1"></vaadin-text-field>
+      <vaadin-button slot="header" on-click="new" theme="primary">New Item</vaadin-button>
+
+      <vaadin-grid slot="grid" items="[[filter(items, search, items.*)]]" active-item="{{activeItem}}">
         <vaadin-grid-column>
           <template class="header">
             <vaadin-grid-sorter path="email">Email</vaadin-grid-sorter>
