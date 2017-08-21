@@ -16,14 +16,14 @@
       }
     </style>
     <vaadin-form-layout style="padding: 10px">
-      <vaadin-text-field colspan="2" label="Login" value="{{item.email}}"></vaadin-text-field>
+      <vaadin-text-field colspan="2" label="Login" value="{{item.email}}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></vaadin-text-field>
       <br>
-      <vaadin-password-field colspan="2" label="Password" value="{{item.password}}"></vaadin-password-field>
+      <vaadin-password-field colspan="2" label="Password" value="{{item.password}}" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"></vaadin-password-field>
       <br>
-      <vaadin-text-field label="Name" value="{{item.name}}"></vaadin-text-field>
+      <vaadin-text-field label="Name" value="{{item.name}}" required pattern=".{3,}"></vaadin-text-field>
       <vaadin-text-field label="Surname" value="{{item.last}}"></vaadin-text-field>
       <br>
-      <vaadin-combo-box label="Role" value="{{item.role}}" items='["admin","operator","user"]'></vaadin-combo-box>
+      <vaadin-combo-box label="Role" value="{{item.role}}" items='["admin","operator","user"]' required></vaadin-combo-box>
       <vaadin-date-picker label="Birthday" value="{{item.birthday}}"></vaadin-date-picker>
     </vaadin-form-layout>
   </template>
