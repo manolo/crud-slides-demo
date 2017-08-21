@@ -8,10 +8,15 @@
 <link rel="import" href="crud-user.html">
 <link rel="import" href="../../bower_components/vaadin-button/vaadin-button.html">
 <link rel="import" href="../../bower_components/vaadin-text-field/vaadin-text-field.html">
+<link rel="import" href="../../bower_components/vaadin-pouchdb/vaadin-pouchdb.html">
 
 <dom-module id="crud-users">
   <template>
-    <iron-ajax auto url="/users.json" handle-as="json" last-response="{{items}}"></iron-ajax>
+    <!-- <iron-ajax auto url="/users.json" handle-as="json" last-response="{{items}}"></iron-ajax> -->
+    <vaadin-pouchdb id="db" dbname="crud-demo" data="{{items}}"
+      remote="https://manolo.cloudant.com/demo"
+      ></vaadin-pouchdb>
+
     <crud-view item="[[item]]">
       <vaadin-text-field slot="header" placeholder="Search ..." value="{{search}}" style="flex: 1"></vaadin-text-field>
       <vaadin-button slot="header" on-click="new" theme="primary">New Item</vaadin-button>
